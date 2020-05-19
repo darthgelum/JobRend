@@ -2,36 +2,41 @@
 //
 #define SDL_MAIN_HANDLED
 #include <iostream>
+#include <string>
+#include "Resolutions.h"
 #include "SDL.h"
-#include"Resolutions.h";
 #include "SDL_image.h"
 #include "Directories.h"
-#include <string>
+#include "Converters.h"
+#include "Screen.h"
+#include "EntityContainer.h"
+
 int main()
 {
-    SDL_Window* window;    
-    SDL_Renderer* renderer = NULL;
-    SDL_Init(SDL_INIT_VIDEO);  
+    SDL_Window* window = Screen::Window();
+    SDL_Surface* surface = Screen::Surface();
+    int memSize = surface->h * surface->pitch;
+    int size = surface->h * surface->w;
 
-    window = SDL_CreateWindow(
-        "JobRend",
-        SDL_WINDOWPOS_UNDEFINED,    
-        SDL_WINDOWPOS_UNDEFINED,   
-        SDRes 
-    );
-    
-    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    if (window == NULL) {
-        printf("Could not create window: %s\n", SDL_GetError());
-        return 1;
+    EntityContainer* cont = new EntityContainer();
+
+    for (Entity* e : cont->GetAll())
+    {
+        e->Start();
+    }
+    //Modify pixels
+    Uint32* pixels = (Uint32*)surface->pixels;
+    for (int i = 0; i < size; i++) {
+        if ((i % 200) == 0 )
+        {
+            pixels[i] = 0xfad32c;
+        }
+        else
+        {
+            pixels[i] = 0x1b2226;
+        }
     }
 
-    SDL_Texture* img = NULL;
-    int w, h; 
-    std::string img_path = "images\\balthier.png";
-    img = IMG_LoadTexture(renderer,img_path.c_str());
-    SDL_QueryTexture(img, NULL,NULL, &w, &h);
-    SDL_Rect texr; texr.x = 120; texr.y =0; texr.w = w; texr.h = h;
     while (1) {
 
         SDL_Event e;
@@ -40,16 +45,23 @@ int main()
                 break;
             else if (e.type == SDL_KEYUP && e.key.keysym.sym == SDLK_ESCAPE)
                 break;
+            else
+            {
+                for (Entity* en : cont->GetAll())
+                {
+                    en->OnEvent(e);
+                }
+            }
         }
-        SDL_RenderClear(renderer);
-        SDL_RenderCopy(renderer, img, NULL, &texr);
-        SDL_RenderPresent(renderer);
+        for (Entity* e : cont->GetAll())
+        {
+            e->Update();
+        }
+        SDL_UpdateWindowSurface(window);
     }
 
-    SDL_DestroyTexture(img);
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-
-    SDL_Quit();
+    Screen::Destroy();
     return 0;
 }
+
+

@@ -153,11 +153,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EntityContainer.cpp" />
     <ClCompile Include="JobRend.cpp" />
+    <ClCompile Include="LinesDrawEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Converters.h" />
     <ClInclude Include="Directories.h" />
+    <ClInclude Include="Entity.h" />
+    <ClInclude Include="EntityContainer.h" />
+    <ClInclude Include="LinesDrawEntity.h" />
+    <ClInclude Include="Loader.h" />
     <ClInclude Include="Resolutions.h" />
+    <ClInclude Include="Screen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
