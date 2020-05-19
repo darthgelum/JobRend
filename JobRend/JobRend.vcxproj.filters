@@ -24,10 +24,13 @@
     <ClCompile Include="JobRend.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="EntityContainer.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
     <ClCompile Include="LinesDrawEntity.cpp">
       <Filter>Исходные файлы\Entities</Filter>
     </ClCompile>
-    <ClCompile Include="EntityContainer.cpp">
+    <ClCompile Include="Screen.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

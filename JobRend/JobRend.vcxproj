@@ -156,6 +156,7 @@
     <ClCompile Include="EntityContainer.cpp" />
     <ClCompile Include="JobRend.cpp" />
     <ClCompile Include="LinesDrawEntity.cpp" />
+    <ClCompile Include="Screen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Converters.h" />

@@ -24,33 +24,14 @@ int main()
     {
         e->Start();
     }
-    //Modify pixels
-    Uint32* pixels = (Uint32*)surface->pixels;
-    for (int i = 0; i < size; i++) {
-        if ((i % 200) == 0 )
-        {
-            pixels[i] = 0xfad32c;
-        }
-        else
-        {
-            pixels[i] = 0x1b2226;
-        }
-    }
 
     while (1) {
 
         SDL_Event e;
         if (SDL_PollEvent(&e)) {
-            if (e.type == SDL_QUIT)
-                break;
-            else if (e.type == SDL_KEYUP && e.key.keysym.sym == SDLK_ESCAPE)
-                break;
-            else
+            for (Entity* en : cont->GetAll())
             {
-                for (Entity* en : cont->GetAll())
-                {
-                    en->OnEvent(e);
-                }
+                en->OnEvent(e);
             }
         }
         for (Entity* e : cont->GetAll())

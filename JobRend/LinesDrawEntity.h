@@ -1,4 +1,7 @@
 #pragma once
-#include "LinesDrawEntity.cpp"
-
+#include "Entity.h"
+class LinesDrawEntity : public Entity
+{
+	void Start() override;
+};
 
