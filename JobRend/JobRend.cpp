@@ -10,7 +10,7 @@
 #include "Converters.h"
 #include "Screen.h"
 #include "EntityContainer.h"
-
+#include "ScreenStates.h"
 int main()
 {
     SDL_Window* window = Screen::Window();
@@ -24,8 +24,8 @@ int main()
     {
         e->Start();
     }
-
-    while (1) {
+    ScreenState::SetState(ScreenStateEnum::RUN);
+    while (ScreenState::GetState() ==  ScreenStateEnum::RUN) {
 
         SDL_Event e;
         if (SDL_PollEvent(&e)) {
@@ -40,7 +40,7 @@ int main()
         }
         SDL_UpdateWindowSurface(window);
     }
-
+    delete cont;
     Screen::Destroy();
     return 0;
 }
