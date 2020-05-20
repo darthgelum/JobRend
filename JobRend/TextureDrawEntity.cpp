@@ -1,8 +1,7 @@
 #include "TextureDrawEntity.h"
 #include "Screen.h"
 
-Uint32* gBuffer = nullptr;
-SDL_Texture* gTexture = nullptr;
+
 
 void TextureDrawEntity::Start()
 {

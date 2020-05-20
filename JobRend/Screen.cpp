@@ -33,6 +33,7 @@ void Screen::InitSurface()
 }
 void Screen::RenderClear()
 {
+	SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
 	SDL_RenderClear(renderer);
 }
 void Screen::Destroy()

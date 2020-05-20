@@ -2,20 +2,17 @@
 #include "Screen.h"
 
 
-Uint32* gBuffer2 = nullptr;
-SDL_Texture* gTexture2 = nullptr;
-
 void LinesDrawEntity::Start()
 {
-    gTexture2 = SDL_CreateTexture(Screen::GetRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STATIC, Screen::GetSurface()->w, Screen::GetSurface()->h);
-    if (gTexture2 == nullptr) {
+    gTexture = SDL_CreateTexture(Screen::GetRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STATIC, Screen::GetWidth(), Screen::GetHeight());
+    if (gTexture == nullptr) {
         printf("Could not create texture. Error: %s\n", SDL_GetError());
 
     }
     else {
         //Create pixel buffer
-        gBuffer2 = new Uint32[Screen::GetPixelsCount()];
-        SDL_memset(gBuffer2, 0, Screen::GetPixelsCount() * sizeof(Uint32));
+        gBuffer = new Uint32[Screen::GetPixelsCount()];
+        SDL_memset(gBuffer, 0, Screen::GetPixelsCount() * sizeof(Uint32));
     }
 }
 
@@ -26,11 +23,11 @@ void LinesDrawEntity::Update()
     ModifyPixels();
 
     //Apply the pixel change to the texture
-    SDL_UpdateTexture(gTexture2, NULL, gBuffer2, Screen::GetWidth() * sizeof(Uint32));
+    SDL_UpdateTexture(gTexture, NULL, gBuffer, Screen::GetWidth() * sizeof(Uint32));
 
     //Render texture to screen
-    SDL_SetTextureBlendMode(gTexture2, SDL_BLENDMODE_BLEND);
-    SDL_RenderCopy(Screen::GetRenderer(), gTexture2, NULL, NULL);
+    SDL_SetTextureBlendMode(gTexture, SDL_BLENDMODE_BLEND);
+    SDL_RenderCopy(Screen::GetRenderer(), gTexture, NULL, NULL);
 
     //Update screen to window
     //SDL_SetRenderDrawBlendMode(gRenderer, SDL_BLENDMODE_BLEND);
@@ -51,7 +48,7 @@ void LinesDrawEntity::ModifyPixels()
     //Color in certain pixels
     for (int i = 0; i < Screen::GetPixelsCount(); ++i) {
         if ((i % 400) == 0) {
-            gBuffer2[i] = yellow;
+            gBuffer[i] = yellow;
         }
     }
 }
