@@ -26,10 +26,7 @@ void Screen::InitWindow(int width, int height, SDL_WindowFlags flag)
 		throw std::invalid_argument("Window initialisation error");
 	}
 }
-Uint32* Screen::GetGBuffer()
-{
-	return new Uint32[2];
-}
+
 void Screen::InitSurface()
 {
 	surface = SDL_GetWindowSurface(window);
@@ -45,4 +42,11 @@ void Screen::Destroy()
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
+}
+
+Uint32* Screen::GetGBuffer()
+{
+	Uint32* buff = new Uint32[GetPixelsCount()];
+	SDL_memset(buff, 0, GetPixelsCount() * sizeof(Uint32));
+	return buff;
 }

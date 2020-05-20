@@ -5,17 +5,19 @@
 
 void TextureDrawEntity::Start()
 {
-    gTexture = SDL_CreateTexture(Screen::GetRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STATIC, Screen::GetSurface()->w, Screen::GetSurface()->h);
-    if (gTexture == nullptr) {
-        printf("Could not create texture. Error: %s\n", SDL_GetError());
+    texture = new Texture(Screen::GetRenderer(), Screen::GetSurface()->w, Screen::GetSurface()->h);
+    gbuffer = Screen::GetGBuffer();
+    //gTexture = SDL_CreateTexture(Screen::GetRenderer(), SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STATIC, Screen::GetSurface()->w, Screen::GetSurface()->h);
+    //if (gTexture == nullptr) {
+    //    printf("Could not create texture. Error: %s\n", SDL_GetError());
 
-    }
-    else {
-        //Create pixel buffer
-        gBuffer = new Uint32[Screen::GetPixelsCount()];
-        SDL_memset(gBuffer, 0, Screen::GetPixelsCount() * sizeof(Uint32));
-    }
-    SDL_SetTextureBlendMode(gTexture, SDL_BLENDMODE_BLEND);
+    //}
+    //else {
+    //    //Create pixel buffer
+    //    gBuffer = new Uint32[Screen::GetPixelsCount()];
+    //    SDL_memset(gBuffer, 0, Screen::GetPixelsCount() * sizeof(Uint32));
+    //}
+
 
 }
 
@@ -23,12 +25,12 @@ void TextureDrawEntity::Update()
 {
     //Perform any modifications on the pixels
     ModifyPixels();
+    texture->renderToScreen(Screen::GetRenderer());
+    ////Apply the pixel change to the texture
+    //SDL_UpdateTexture(gTexture, NULL, gBuffer, Screen::GetWidth() * sizeof(Uint32));
 
-    //Apply the pixel change to the texture
-    SDL_UpdateTexture(gTexture, NULL, gBuffer, Screen::GetWidth() * sizeof(Uint32));
-
-    //Render texture to screen
-    SDL_RenderCopy(Screen::GetRenderer(), gTexture, NULL, NULL);
+    ////Render texture to screen
+    //SDL_RenderCopy(Screen::GetRenderer(), gTexture, NULL, NULL);
 
 }
 
@@ -46,13 +48,14 @@ void TextureDrawEntity::ModifyPixels()
     //Color in certain pixels
     for (int i = 0; i < Screen::GetPixelsCount(); ++i) {
         if ((i % 50) == 0) {
-            gBuffer[i] = red1;
+            gbuffer[i] = red1;
         }
         if ((i % 1000) == 0) {
-            gBuffer[i] = green;
+            gbuffer[i] = green;
         }
         if ((i % 2000) == 0) {
-            gBuffer[i] = blue;
+            gbuffer[i] = blue;
         }
     }
+    texture->updateTexture(gbuffer);
 }

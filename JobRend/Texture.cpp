@@ -5,6 +5,7 @@ Texture::Texture(SDL_Renderer* renderer, int width, int height) {
     mPitch = width * sizeof(Uint32);
     mTexture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888,
         SDL_TEXTUREACCESS_STATIC, mWidth, mHeight);
+    SDL_SetTextureBlendMode(mTexture, SDL_BLENDMODE_BLEND);
 }
 
 Texture::~Texture() {
