@@ -8,7 +8,8 @@ enum class ScreenStateEnum
 class ScreenState
 {
 public:
-	static ScreenStateEnum state;
 	static ScreenStateEnum GetState();
 	static void SetState(ScreenStateEnum state);
+private:
+	static ScreenStateEnum state;
 };

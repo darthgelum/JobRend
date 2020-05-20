@@ -2,9 +2,11 @@
 #include "EntityContainer.h"
 #include "LinesDrawEntity.h"
 #include "BaseInput.h"
+#include "TextureDrawEntity.h"
 void EntityContainer::LoadEntities()
 {
 	Add(new LinesDrawEntity());
 	Add(new BaseInputEntity());
+	Add(new TextureDrawEntity());
 
 }

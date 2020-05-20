@@ -19,6 +19,9 @@
     <Filter Include="Файлы заголовков\Entities">
       <UniqueIdentifier>{e9977b3e-f14f-4bd3-9490-09e00c4751a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Screen">
+      <UniqueIdentifier>{deb40e68-b427-4f93-913c-5b27dcce2acf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JobRend.cpp">
@@ -30,13 +33,16 @@
     <ClCompile Include="LinesDrawEntity.cpp">
       <Filter>Исходные файлы\Entities</Filter>
     </ClCompile>
-    <ClCompile Include="Screen.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="BaseInput.cpp">
       <Filter>Исходные файлы\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="Screen.cpp">
+      <Filter>Исходные файлы\Screen</Filter>
+    </ClCompile>
     <ClCompile Include="ScreenStates.cpp">
+      <Filter>Исходные файлы\Screen</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureDrawEntity.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -70,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="ScreenStates.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureDrawEntity.h">
+      <Filter>Файлы заголовков\Entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

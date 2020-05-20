@@ -7,12 +7,9 @@
 
 class Screen
 {
-	static SDL_Window* window;
-	static SDL_Renderer* renderer;
-	static SDL_Surface* surface;
 
 public:
-	static SDL_Window* Window()
+	static SDL_Window* GetWindow()
 	{
 		if (window == NULL)
 		{
@@ -21,7 +18,7 @@ public:
 		return window;
 	}
 
-	static SDL_Renderer* Renderer()
+	static SDL_Renderer* GetRenderer()
 	{
 		if (renderer == NULL)
 		{
@@ -30,18 +27,52 @@ public:
 		return renderer;
 	}
 
-	static SDL_Surface* Surface()
+	static SDL_Surface* GetSurface()
 	{
 		if (surface == NULL)
 		{
 			InitSurface();
 		}
 		return surface;
-	}	
+	}
+	static int	GetWidth()
+	{
+		if (width == 0)
+		{
+			width = GetSurface()->w;
+		}
+		return width;
+	};
+	static int	GetHeight()
+	{
+		if (height == 0)
+		{
+			height = GetSurface()->w;
+		}
+		return height;
+	};
+	static int	GetPixelsCount() 
+	{
+		if (pixelsCount == 0)
+		{
+			pixelsCount = GetHeight()*GetWidth();
+		}
+		return pixelsCount;
+	};
+
+	static void RenderClear();
 	static void InitRenderer();
 	static void InitWindow(int width, int height, SDL_WindowFlags flag = SDL_WINDOW_OPENGL);
 	static void InitSurface();
 	static void Destroy();
+private:
+	static SDL_Window* window;
+	static SDL_Renderer* renderer;
+	static SDL_Surface* surface;
+	static int width;
+	static int height;
+	static int pixelsCount;
+
 };
 
 

@@ -13,18 +13,17 @@
 #include "ScreenStates.h"
 int main()
 {
-    SDL_Window* window = Screen::Window();
-    SDL_Surface* surface = Screen::Surface();
-    int memSize = surface->h * surface->pitch;
-    int size = surface->h * surface->w;
+    SDL_Window* window = Screen::GetWindow();
+    SDL_Surface* surface = Screen::GetSurface();
 
     EntityContainer* cont = new EntityContainer();
 
+    ScreenState::SetState(ScreenStateEnum::RUN);
     for (Entity* e : cont->GetAll())
     {
         e->Start();
     }
-    ScreenState::SetState(ScreenStateEnum::RUN);
+
     while (ScreenState::GetState() ==  ScreenStateEnum::RUN) {
 
         SDL_Event e;
@@ -38,7 +37,7 @@ int main()
         {
             e->Update();
         }
-        SDL_UpdateWindowSurface(window);
+
     }
     delete cont;
     Screen::Destroy();
