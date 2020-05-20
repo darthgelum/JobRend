@@ -1,4 +1,4 @@
-#include "BaseInput.h"
+#include "BaseInputEntity.h"
 #include "ScreenStates.h"
 void BaseInputEntity::OnEvent(SDL_Event e)
 {

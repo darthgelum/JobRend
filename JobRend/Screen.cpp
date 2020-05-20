@@ -26,7 +26,10 @@ void Screen::InitWindow(int width, int height, SDL_WindowFlags flag)
 		throw std::invalid_argument("Window initialisation error");
 	}
 }
-
+Uint32* Screen::GetGBuffer()
+{
+	return new Uint32[2];
+}
 void Screen::InitSurface()
 {
 	surface = SDL_GetWindowSurface(window);

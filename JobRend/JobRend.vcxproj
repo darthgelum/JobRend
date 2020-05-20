@@ -153,16 +153,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BaseInput.cpp" />
+    <ClCompile Include="BaseInputEntity.cpp" />
     <ClCompile Include="EntityContainer.cpp" />
     <ClCompile Include="JobRend.cpp" />
     <ClCompile Include="LinesDrawEntity.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="ScreenStates.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureDrawEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BaseInput.h" />
+    <ClInclude Include="BaseInputEntity.h" />
     <ClInclude Include="Converters.h" />
     <ClInclude Include="Directories.h" />
     <ClInclude Include="Entity.h" />
@@ -172,6 +173,7 @@
     <ClInclude Include="Resolutions.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="ScreenStates.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureDrawEntity.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

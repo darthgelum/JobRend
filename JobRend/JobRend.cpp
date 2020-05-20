@@ -33,11 +33,12 @@ int main()
                 en->OnEvent(e);
             }
         }
+        Screen::RenderClear();
         for (Entity* e : cont->GetAll())
         {
             e->Update();
         }
-
+        SDL_RenderPresent(Screen::GetRenderer());
     }
     delete cont;
     Screen::Destroy();
