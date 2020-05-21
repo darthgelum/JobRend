@@ -60,6 +60,9 @@
     <ClCompile Include="Model.cpp">
       <Filter>Исходные файлы\Elements</Filter>
     </ClCompile>
+    <ClCompile Include="CubeEntity.cpp">
+      <Filter>Исходные файлы\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Resolutions.h">
@@ -98,17 +101,23 @@
     <ClInclude Include="MainCanvas.h">
       <Filter>Файлы заголовков\Elements</Filter>
     </ClInclude>
-    <ClInclude Include="Vector3.h">
-      <Filter>Файлы заголовков\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>Файлы заголовков\Entities</Filter>
-    </ClInclude>
     <ClInclude Include="ChessPixelDrawEntity.h">
       <Filter>Файлы заголовков\Entities</Filter>
     </ClInclude>
+    <ClInclude Include="CubeEntity.h">
+      <Filter>Файлы заголовков\Entities</Filter>
+    </ClInclude>
     <ClInclude Include="Model.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.h">
+      <Filter>Файлы заголовков\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Файлы заголовков\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Файлы заголовков\Elements</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

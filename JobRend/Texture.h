@@ -9,6 +9,16 @@ public:
     Texture(SDL_Renderer* renderer, SDL_Texture* texture);
     ~Texture();
 
+    int GetWidth()
+    {
+        return mWidth;
+    }
+
+    int GetHeight()
+    {
+        return mHeight;
+    }
+
     void free();
 
     void updateTexture(Uint32* pixels);
