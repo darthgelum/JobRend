@@ -3,6 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include "Vector3.h"
+
 Model::Model(std::string path) {
     buildMesh(path);
 }

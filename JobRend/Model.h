@@ -10,6 +10,7 @@ public:
 
 private:
     void buildMesh(std::string path);
+
     Mesh mMesh;
 };
 

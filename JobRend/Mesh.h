@@ -7,4 +7,5 @@
 struct Mesh {
     int numVertices = 0;
     std::vector<Vector3> vertices;
+
 };
