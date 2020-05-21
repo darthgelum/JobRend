@@ -36,9 +36,6 @@
     <ClCompile Include="EntityContainer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="LinesDrawEntity.cpp">
-      <Filter>Исходные файлы\Entities</Filter>
-    </ClCompile>
     <ClCompile Include="Screen.cpp">
       <Filter>Исходные файлы\Screen</Filter>
     </ClCompile>
@@ -56,6 +53,9 @@
     </ClCompile>
     <ClCompile Include="MainCanvas.cpp">
       <Filter>Исходные файлы\Screen</Filter>
+    </ClCompile>
+    <ClCompile Include="ChessPixelDrawEntity.cpp">
+      <Filter>Исходные файлы\Entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,9 +77,6 @@
     <ClInclude Include="Entity.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="LinesDrawEntity.h">
-      <Filter>Файлы заголовков\Entities</Filter>
-    </ClInclude>
     <ClInclude Include="EntityContainer.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
@@ -97,6 +94,15 @@
     </ClInclude>
     <ClInclude Include="MainCanvas.h">
       <Filter>Файлы заголовков\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.h">
+      <Filter>Файлы заголовков\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Файлы заголовков\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="ChessPixelDrawEntity.h">
+      <Filter>Файлы заголовков\Entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

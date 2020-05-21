@@ -156,7 +156,7 @@
     <ClCompile Include="BaseInputEntity.cpp" />
     <ClCompile Include="EntityContainer.cpp" />
     <ClCompile Include="JobRend.cpp" />
-    <ClCompile Include="LinesDrawEntity.cpp" />
+    <ClCompile Include="ChessPixelDrawEntity.cpp" />
     <ClCompile Include="MainCanvas.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="ScreenStates.cpp" />
@@ -169,14 +169,16 @@
     <ClInclude Include="Directories.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityContainer.h" />
-    <ClInclude Include="LinesDrawEntity.h" />
+    <ClInclude Include="ChessPixelDrawEntity.h" />
     <ClInclude Include="Loader.h" />
     <ClInclude Include="MainCanvas.h" />
+    <ClInclude Include="Mesh.h" />
     <ClInclude Include="Resolutions.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="ScreenStates.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureDrawEntity.h" />
+    <ClInclude Include="Vector3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
