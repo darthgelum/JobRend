@@ -4,14 +4,11 @@
 class Converters
 {
 public:
-	static Uint32 IntToHex(int value);
+	static Uint32 IntToHex(int value) {
+		unsigned int x;
+		std::stringstream ss;
+		ss << std::hex << value;
+		ss >> x;
+		return x;
+	}
 };
-
-Uint32 Converters::IntToHex(int value)
-{
-	unsigned int x;
-	std::stringstream ss;
-	ss << std::hex << value;
-	ss >> x;
-	return x;
-}

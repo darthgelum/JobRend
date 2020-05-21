@@ -54,6 +54,9 @@
     <ClCompile Include="BaseInputEntity.cpp">
       <Filter>Исходные файлы\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="MainCanvas.cpp">
+      <Filter>Исходные файлы\Screen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Resolutions.h">
@@ -91,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="BaseInputEntity.h">
       <Filter>Файлы заголовков\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCanvas.h">
+      <Filter>Файлы заголовков\Elements</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

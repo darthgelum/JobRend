@@ -157,6 +157,7 @@
     <ClCompile Include="EntityContainer.cpp" />
     <ClCompile Include="JobRend.cpp" />
     <ClCompile Include="LinesDrawEntity.cpp" />
+    <ClCompile Include="MainCanvas.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="ScreenStates.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="EntityContainer.h" />
     <ClInclude Include="LinesDrawEntity.h" />
     <ClInclude Include="Loader.h" />
+    <ClInclude Include="MainCanvas.h" />
     <ClInclude Include="Resolutions.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="ScreenStates.h" />

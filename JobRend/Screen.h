@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdexcept>
 #include "Resolutions.h"
+#include "MainCanvas.h"
 
 
 class Screen
@@ -60,16 +61,21 @@ public:
 		return pixelsCount;
 	};
 
-	static void RenderClear();
+	static MainCanvas* GetCanvas() {
+		return mainCanvas;
+	};
+	static void Clear();
 	static void InitRenderer();
 	static void InitWindow(int width, int height, SDL_WindowFlags flag = SDL_WINDOW_OPENGL);
 	static Uint32* GetGBuffer();
 	static void InitSurface();
 	static void Destroy();
+
 private:
 	static SDL_Window* window;
 	static SDL_Renderer* renderer;
 	static SDL_Surface* surface;
+	static MainCanvas* mainCanvas;
 	static int width;
 	static int height;
 	static int pixelsCount;

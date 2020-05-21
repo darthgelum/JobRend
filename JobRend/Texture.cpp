@@ -8,6 +8,13 @@ Texture::Texture(SDL_Renderer* renderer, int width, int height) {
     SDL_SetTextureBlendMode(mTexture, SDL_BLENDMODE_BLEND);
 }
 
+Texture::Texture(SDL_Renderer* renderer, SDL_Texture* texture) {
+    mTexture = texture;
+    SDL_QueryTexture(texture,NULL,NULL, &mWidth, &mHeight);
+    mPitch = mWidth * sizeof(Uint32);
+    SDL_SetTextureBlendMode(mTexture, SDL_BLENDMODE_BLEND);
+}
+
 Texture::~Texture() {
     free();
 }

@@ -6,10 +6,11 @@ int Screen::pixelsCount = 0;
 SDL_Window* Screen::window;
 SDL_Renderer* Screen::renderer;
 SDL_Surface* Screen::surface;
+MainCanvas* Screen::mainCanvas;
 
 void Screen::InitRenderer()
 {
-	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
 }
 
 void Screen::InitWindow(int width, int height, SDL_WindowFlags flag)
@@ -30,8 +31,9 @@ void Screen::InitWindow(int width, int height, SDL_WindowFlags flag)
 void Screen::InitSurface()
 {
 	surface = SDL_GetWindowSurface(window);
+	mainCanvas = new MainCanvas();
 }
-void Screen::RenderClear()
+void Screen::Clear()
 {
 	SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
 	SDL_RenderClear(renderer);
@@ -42,11 +44,4 @@ void Screen::Destroy()
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
-}
-
-Uint32* Screen::GetGBuffer()
-{
-	Uint32* buff = new Uint32[GetPixelsCount()];
-	SDL_memset(buff, 0, GetPixelsCount() * sizeof(Uint32));
-	return buff;
 }

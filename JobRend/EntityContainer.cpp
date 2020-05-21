@@ -5,7 +5,6 @@
 #include "TextureDrawEntity.h"
 void EntityContainer::LoadEntities()
 {
-	
 	Add(new LinesDrawEntity());
 	Add(new BaseInputEntity());
 	Add(new TextureDrawEntity());

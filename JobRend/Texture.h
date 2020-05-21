@@ -6,7 +6,7 @@ class Texture {
 public:
 
     Texture(SDL_Renderer* renderer, int width, int height);
-
+    Texture(SDL_Renderer* renderer, SDL_Texture* texture);
     ~Texture();
 
     void free();
