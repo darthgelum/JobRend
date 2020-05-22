@@ -60,7 +60,7 @@
     <ClCompile Include="Model.cpp">
       <Filter>Исходные файлы\Elements</Filter>
     </ClCompile>
-    <ClCompile Include="CubeEntity.cpp">
+    <ClCompile Include="ModelDrawEntity.cpp">
       <Filter>Исходные файлы\Entities</Filter>
     </ClCompile>
   </ItemGroup>
@@ -69,9 +69,6 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Directories.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Loader.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Converters.h">
@@ -104,9 +101,6 @@
     <ClInclude Include="ChessPixelDrawEntity.h">
       <Filter>Файлы заголовков\Entities</Filter>
     </ClInclude>
-    <ClInclude Include="CubeEntity.h">
-      <Filter>Файлы заголовков\Entities</Filter>
-    </ClInclude>
     <ClInclude Include="Model.h">
       <Filter>Файлы заголовков\Elements</Filter>
     </ClInclude>
@@ -118,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="Vector2.h">
       <Filter>Файлы заголовков\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelDrawEntity.h">
+      <Filter>Файлы заголовков\Entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

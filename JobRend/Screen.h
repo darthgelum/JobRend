@@ -67,7 +67,6 @@ public:
 	static void Clear();
 	static void InitRenderer();
 	static void InitWindow(int width, int height, SDL_WindowFlags flag = SDL_WINDOW_OPENGL);
-	static Uint32* GetGBuffer();
 	static void InitSurface();
 	static void Destroy();
 

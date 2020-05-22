@@ -3,11 +3,11 @@
 #include "ChessPixelDrawEntity.h"
 #include "BaseInputEntity.h"
 #include "TextureDrawEntity.h"
-#include "CubeEntity.h"
+#include "ModelDrawEntity.h"
 void EntityContainer::LoadEntities()
 {
 	//Add(new ChessPixelDrawEntity());
 	Add(new BaseInputEntity());
 	//Add(new TextureDrawEntity());
-	Add(new CubeEntity());
+	Add(new ModelDrawEntity());
 }

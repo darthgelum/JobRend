@@ -6,7 +6,6 @@
 #include "Resolutions.h"
 #include "SDL.h"
 #include "SDL_image.h"
-#include "Directories.h"
 #include "Converters.h"
 #include "Screen.h"
 #include "EntityContainer.h"

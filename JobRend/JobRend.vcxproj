@@ -154,7 +154,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BaseInputEntity.cpp" />
-    <ClCompile Include="CubeEntity.cpp" />
+    <ClCompile Include="ModelDrawEntity.cpp" />
     <ClCompile Include="EntityContainer.cpp" />
     <ClCompile Include="JobRend.cpp" />
     <ClCompile Include="ChessPixelDrawEntity.cpp" />
@@ -168,12 +168,11 @@
   <ItemGroup>
     <ClInclude Include="BaseInputEntity.h" />
     <ClInclude Include="Converters.h" />
-    <ClInclude Include="CubeEntity.h" />
+    <ClInclude Include="ModelDrawEntity.h" />
     <ClInclude Include="Directories.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityContainer.h" />
     <ClInclude Include="ChessPixelDrawEntity.h" />
-    <ClInclude Include="Loader.h" />
     <ClInclude Include="MainCanvas.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />

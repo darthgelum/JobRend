@@ -2,17 +2,17 @@
 #include "Screen.h"
 MainCanvas::MainCanvas()
 {
+    center = Vector2(Screen::GetSurface()->w/2, Screen::GetSurface()->h/2);
 	texture = new Texture(Screen::GetRenderer(), Screen::GetSurface()->w, Screen::GetSurface()->h);
 	gBuffer = new Uint32[Screen::GetPixelsCount()];
-
+    mappingFormat = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
     for (int i = 0; i < Screen::GetPixelsCount(); ++i) {
         gBuffer[i] = CColor(0x00,0x00,0x00);
     }
 }
 
 Uint32 MainCanvas::CColor(int r, int g, int b, int a) {
-    Uint32 format = SDL_PIXELFORMAT_RGBA8888;
-    SDL_PixelFormat* mappingFormat = SDL_AllocFormat(format);
+   
     return SDL_MapRGBA(mappingFormat, r, g, b, a);
 };
 

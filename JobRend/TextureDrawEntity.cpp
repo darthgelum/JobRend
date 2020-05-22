@@ -7,11 +7,11 @@ void TextureDrawEntity::Update()
 
 void TextureDrawEntity::ModifyPixels()
 {
-    Uint32 red = MainCanvas::CColor(0xff,0x00,0x00);
-    Uint32 green = MainCanvas::CColor(0x00, 0xff, 0x00);
-    Uint32 blue = MainCanvas::CColor(0x00, 0x00, 0xff);
-    
+
     MainCanvas* canvas = Screen::GetCanvas();
+    Uint32 red = canvas->CColor(0xff, 0x00, 0x00);
+    Uint32 green = canvas->CColor(0x00, 0xff, 0x00);
+    Uint32 blue = canvas->CColor(0x00, 0x00, 0xff);
     //Color in certain pixels
     for (int i = 0; i < Screen::GetPixelsCount(); ++i) {
         Vector2 coords = canvas->GetCoordsOfPixel(i);
