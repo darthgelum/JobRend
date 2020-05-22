@@ -164,6 +164,7 @@
     <ClCompile Include="ScreenStates.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureDrawEntity.cpp" />
+    <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseInputEntity.h" />

@@ -57,20 +57,6 @@ void Model::GetFaces(std::ifstream& file) {
     file.seekg(0, file.beg);
 }
 
-void Model::Rotate(float theta)
-{
-    int size = mMesh.numVertices;
-    float cos_t = std::cos(theta);
-    float sin_t = std::sin(theta);
-    std::vector<Vector3>* vertices = &mMesh.vertices;
-    // Rotation matrix
-    for (int i = 0; i < size; ++i) {
-        float xOld = (*vertices)[i].x;
-        float zOld = (*vertices)[i].z;
-        (*vertices)[i].x = xOld * cos_t + zOld * sin_t;
-        (*vertices)[i].z = -xOld * sin_t + zOld * cos_t;
-    }
-}
 
 void Model::GetVertices(std::ifstream& file) {
     std::string line, v, x, y, z;

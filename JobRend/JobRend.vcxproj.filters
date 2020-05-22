@@ -63,6 +63,9 @@
     <ClCompile Include="ModelDrawEntity.cpp">
       <Filter>Исходные файлы\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="Vector3.cpp">
+      <Filter>Исходные файлы\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Resolutions.h">

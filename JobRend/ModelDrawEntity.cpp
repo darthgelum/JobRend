@@ -4,7 +4,11 @@
 void ModelDrawEntity::Start() {
 	model = new Model("models\\ayumi.obj");
 	//cube->describeMesh();
-
+    int size = model->GetMesh()->numVertices;
+    for (int i = 0; i < size; ++i) {
+        (model->GetMesh()->vertices)[i].scale(4);
+        (model->GetMesh()->vertices)[i].translate(Screen::GetCanvas()->CenterPoint().x,-Screen::GetCanvas()->GetHeight(),0);
+    }
 };
 
 void ModelDrawEntity::Update()
@@ -27,9 +31,15 @@ void ModelDrawEntity::Update()
         Vector3 v2 = (*vertices)[f.y - 1];
         Vector3 v3 = (*vertices)[f.z - 1];
         canvas->DrawLine(v1, v2, green);
-       /* canvas->DrawLine(v2, v3, red);
-        canvas->DrawLine(v1, v3, green);*/
+        //canvas->DrawLine(v2, v3, red);
+        //canvas->DrawLine(v1, v3, blue);
     }
 
-    model->Rotate(theta);
+    float thetax = 0.004;
+    float thetay = 0.004;
+    int size = modelMesh->numVertices;
+    for (int i = 0; i < size; ++i) {
+       // (*vertices)[i].rotX(thetax);
+        (*vertices)[i].rotX(thetay);
+    }
 }

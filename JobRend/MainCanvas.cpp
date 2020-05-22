@@ -18,12 +18,12 @@ Uint32 MainCanvas::CColor(int r, int g, int b, int a) {
 
 void MainCanvas::DrawLine(Vector3 vertex1, Vector3 vertex2, Uint32 color)
 {
-    int scalingFactor = 3;
+
     // Coord + centerization (center on x, 2/3 on y)
-    int x0 = (vertex1.x * scalingFactor) + GetWidth() * 1 / 2;
-    int y0 = (-vertex1.y * scalingFactor) + GetHeight();
-    int x1 = (vertex2.x * scalingFactor) + GetWidth() * 1 / 2;
-    int y1 = (-vertex2.y * scalingFactor) + GetHeight();
+    int x0 = vertex1.x;
+    int y0 = -vertex1.y;
+    int x1 = vertex2.x;
+    int y1 =  -vertex2.y;
     // Bresenheim algo
     const int deltaX = abs(x1 - x0);
     const int deltaY = abs(y1 - y0);
