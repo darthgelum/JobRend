@@ -11,6 +11,6 @@ public:
 private:
 	std::list<Uint32*> l;
 	void clear();
-	Model* cube;
+	Model* model;
 };
 

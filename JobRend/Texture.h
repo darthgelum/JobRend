@@ -19,6 +19,11 @@ public:
         return mHeight;
     }
 
+    int GetPitch()
+    {
+        return mPitch;
+    }
+
     void free();
 
     void updateTexture(Uint32* pixels);

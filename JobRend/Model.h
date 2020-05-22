@@ -8,6 +8,7 @@ public:
     void describeMesh();
     void GetFaces(std::ifstream& file);
     void GetVertices(std::ifstream& file);
+    void Rotate(float theta);
     Mesh* GetMesh();
 
 private:

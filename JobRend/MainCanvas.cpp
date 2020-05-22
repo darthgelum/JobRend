@@ -18,7 +18,7 @@ Uint32 MainCanvas::CColor(int r, int g, int b, int a) {
 
 void MainCanvas::DrawLine(Vector3 vertex1, Vector3 vertex2, Uint32 color)
 {
-    int scalingFactor = 18;
+    int scalingFactor = 3;
     // Coord + centerization (center on x, 2/3 on y)
     int x0 = (vertex1.x * scalingFactor) + GetWidth() * 1 / 2;
     int y0 = (-vertex1.y * scalingFactor) + GetHeight();
@@ -30,14 +30,14 @@ void MainCanvas::DrawLine(Vector3 vertex1, Vector3 vertex2, Uint32 color)
     const int signX = x0 < x1 ? 1 : -1;
     const int signY = y0 < y1 ? 1 : -1;
 
-    int error = 1;
+    int error = deltaX - deltaY;
     int error2 = 0;
     //last point
     SetPixelColor(color,x1, y1);
     while (x0 != x1 || y0 != y1)
     {
         SetPixelColor(color, x0, y0);
-        error2 = error * 2;
+        error2 = error << 1 ;
         //
         if (error2 > -deltaY)
         {

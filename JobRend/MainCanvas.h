@@ -21,6 +21,11 @@ public:
 		return texture->GetHeight();
 	}
 	
+	int GetPitch()
+	{
+		return texture->GetPitch();
+	}
+
 	Vector2 CenterPoint()
 	{
 		return center;

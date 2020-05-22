@@ -35,8 +35,8 @@ void Screen::InitSurface()
 }
 void Screen::Clear()
 {
-	SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
 	SDL_RenderClear(renderer);
+	memset(mainCanvas->GetGBuffer(), 0, mainCanvas->GetPitch() * mainCanvas->GetHeight());
 }
 void Screen::Destroy()
 {
