@@ -2,32 +2,26 @@
 #include "MainCanvas.h"
 #include <list>
 void ModelDrawEntity::Start() {
-	cube = new Model("models\\ayumi.obj");
+	cube = new Model("models\\teapot.obj");
 	//cube->describeMesh();
+
 };
 
 void ModelDrawEntity::Update()
 {
-    clear();
     MainCanvas* canvas = Screen::GetCanvas();
     Uint32 red = canvas->CColor(0xFF, 0x00, 0x00);
-    std::vector<Vector3> vertices = (cube->getMesh()).vertices;
-    for (Vector3 v : vertices) {
-        int x = (v.x * offset) + canvas->CenterPoint().x;
-        int y = (-v.y * offset) + canvas->CenterPoint().y*2;
-        if ((x >= 0) && (y >= 0) && (x < canvas->GetWidth()) && (y < canvas->GetHeight())) {
-            canvas->SetPixelColor(red, x, y);
-            l.push_back(Vector2(x, y));
-        }
+    Uint32 green = canvas->CColor(0x00, 0xFF, 0x00);
+    Uint32 white = canvas->CColor(0xFF, 0xFF, 0xFF);
+    Mesh* modelMesh = cube->GetMesh();
+    std::vector<Vector3>* faces = &modelMesh->faces;
+    std::vector<Vector3>* vertices = &modelMesh->vertices;
+    for (Vector3 f : *faces) {
+        Vector3 v1 = (*vertices)[f.x - 1];
+        Vector3 v2 = (*vertices)[f.y - 1];
+        Vector3 v3 = (*vertices)[f.z - 1];
+        canvas->DrawLine(v1, v2, white);
+        canvas->DrawLine(v2, v3, red);
+        canvas->DrawLine(v1, v3, green);
     }
-}
-
-void ModelDrawEntity::clear()
-{
-    MainCanvas* canvas = Screen::GetCanvas();
-    for (Vector2 px : l)
-    {
-        canvas->SetPixelColor(canvas->CColor(0,0,0) , px.x, px.y);
-    }
-    l.clear();
 }

@@ -1,3 +1,3 @@
 #pragma once
 
-#define SDRes 1920,1080, SDL_WINDOW_OPENGL
+#define SDRes 640,480, SDL_WINDOW_OPENGL

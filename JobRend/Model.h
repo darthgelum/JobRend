@@ -6,7 +6,9 @@ class Model
 public:
     Model(std::string path);
     void describeMesh();
-    Mesh getMesh();
+    void GetFaces(std::ifstream& file);
+    void GetVertices(std::ifstream& file);
+    Mesh* GetMesh();
 
 private:
     void buildMesh(std::string path);

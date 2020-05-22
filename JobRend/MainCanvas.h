@@ -1,6 +1,7 @@
 #pragma once
 #include "Texture.h"
 #include "Vector2.h"
+#include "Vector3.h"
 class MainCanvas
 {
 public:
@@ -24,8 +25,11 @@ public:
 	{
 		return center;
 	}
+	void DrawLine(Vector3 vertex1, Vector3 vertex2, Uint32 color);
 
-	void SetPixelColor(Uint32 color, int x, int y);
+	Uint32* SetPixelColor(Uint32 color, int x, int y);
+
+	Uint32* SetPixelColor(Uint32 color, Uint32* pixel);
 
 	void Render();
 

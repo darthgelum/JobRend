@@ -8,8 +8,8 @@ Model::Model(std::string path) {
     buildMesh(path);
 }
 
-Mesh Model::getMesh() {
-    return mMesh;
+Mesh* Model::GetMesh() {
+    return &mMesh;
 }
 
 void Model::describeMesh() {
@@ -23,13 +23,42 @@ void Model::describeMesh() {
 
 void Model::buildMesh(std::string path) {
     printf("Loading models...\n");
-    std::fstream file;
     std::string line, v, x, y, z;
 
-    //Open file containing vertex data
+    std::ifstream file;
     file.open(path.c_str());
 
     //Get vertices into mesh
+    GetVertices(file);
+
+    //Get faces
+    GetFaces(file);
+
+    //Close file after reading
+    file.close();
+    mMesh.numVertices = mMesh.vertices.size();
+}
+
+void Model::GetFaces(std::ifstream& file) {
+    std::string line, f, x, y, z;
+    while (!file.eof()) {
+
+        std::getline(file, line);
+        std::istringstream iss(line);
+        iss >> f;
+        if (f == "f") {
+            iss >> x >> y >> z;
+            Vector3 face(x, y, z);
+            mMesh.faces.push_back(face);
+        }
+    }
+    mMesh.numFaces = mMesh.faces.size();
+    file.clear();
+    file.seekg(0, file.beg);
+}
+
+void Model::GetVertices(std::ifstream& file) {
+    std::string line, v, x, y, z;
     while (!file.eof()) {
         std::getline(file, line);
         std::istringstream iss(line);
@@ -40,6 +69,7 @@ void Model::buildMesh(std::string path) {
             mMesh.vertices.push_back(vertex);
         }
     }
-    file.close();
     mMesh.numVertices = mMesh.vertices.size();
+    file.clear();
+    file.seekg(0, file.beg);
 }

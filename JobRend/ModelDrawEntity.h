@@ -9,10 +9,7 @@ public:
 	void Update() override;
 
 private:
-	std::list<Vector2> l;
-	bool switcher = false;
-	float offset = 5;
-	float multiplier = 8;
+	std::list<Uint32*> l;
 	void clear();
 	Model* cube;
 };
