@@ -28,33 +28,27 @@
     <Filter Include="Файлы заголовков\Elements">
       <UniqueIdentifier>{970ddf47-9ac1-4d59-a490-789c98bf8da7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Engine">
+      <UniqueIdentifier>{1bce76e0-7dd7-4bbc-8639-d608e57de963}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Engine">
+      <UniqueIdentifier>{6939ad24-1b36-4e27-a1f6-5a8f04496a9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Helpers">
+      <UniqueIdentifier>{b9cb994a-178c-46cc-8bf6-3e6ba03e3ff4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Screen">
+      <UniqueIdentifier>{73753e08-81a6-4996-b55c-6a47d4e542f6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JobRend.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="EntityContainer.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Screen.cpp">
-      <Filter>Исходные файлы\Screen</Filter>
-    </ClCompile>
     <ClCompile Include="ScreenStates.cpp">
       <Filter>Исходные файлы\Screen</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Исходные файлы\Elements</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureDrawEntity.cpp">
-      <Filter>Исходные файлы\Entities</Filter>
-    </ClCompile>
     <ClCompile Include="BaseInputEntity.cpp">
-      <Filter>Исходные файлы\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="MainCanvas.cpp">
-      <Filter>Исходные файлы\Screen</Filter>
-    </ClCompile>
-    <ClCompile Include="ChessPixelDrawEntity.cpp">
       <Filter>Исходные файлы\Entities</Filter>
     </ClCompile>
     <ClCompile Include="Model.cpp">
@@ -69,42 +63,18 @@
     <ClCompile Include="PlaneDrawEntity.cpp">
       <Filter>Исходные файлы\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="EntityContainer.cpp">
+      <Filter>Исходные файлы\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="SDLSoftwareRenderer.cpp">
+      <Filter>Исходные файлы\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Исходные файлы\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Resolutions.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Directories.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Converters.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Screen.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="EntityContainer.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="ScreenStates.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureDrawEntity.h">
-      <Filter>Файлы заголовков\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Файлы заголовков\Elements</Filter>
-    </ClInclude>
     <ClInclude Include="BaseInputEntity.h">
-      <Filter>Файлы заголовков\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="MainCanvas.h">
-      <Filter>Файлы заголовков\Elements</Filter>
-    </ClInclude>
-    <ClInclude Include="ChessPixelDrawEntity.h">
       <Filter>Файлы заголовков\Entities</Filter>
     </ClInclude>
     <ClInclude Include="Model.h">
@@ -121,6 +91,36 @@
     </ClInclude>
     <ClInclude Include="Vectors.h">
       <Filter>Файлы заголовков\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="Converters.h">
+      <Filter>Файлы заголовков\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Directories.h">
+      <Filter>Файлы заголовков\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Файлы заголовков\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityContainer.h">
+      <Filter>Файлы заголовков\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Resolutions.h">
+      <Filter>Файлы заголовков\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractRenderer.h">
+      <Filter>Файлы заголовков\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenStates.h">
+      <Filter>Файлы заголовков\Screen</Filter>
+    </ClInclude>
+    <ClInclude Include="SDLSoftwareRenderer.h">
+      <Filter>Файлы заголовков\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Файлы заголовков\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

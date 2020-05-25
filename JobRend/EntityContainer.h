@@ -1,6 +1,7 @@
 #pragma once
 #include <list>
 #include "Entity.h"
+
 class EntityContainer
 {
 	std::list <Entity*> entities;

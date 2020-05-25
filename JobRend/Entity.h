@@ -1,7 +1,8 @@
 #pragma once
+#include <sstream>
 #include <SDL_events.h>
-#include "Screen.h"
-#include "MainCanvas.h"
+
+
 class Entity
 {
 public:

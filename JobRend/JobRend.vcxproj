@@ -154,36 +154,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BaseInputEntity.cpp" />
+    <ClCompile Include="Engine.cpp" />
     <ClCompile Include="ModelDrawEntity.cpp" />
     <ClCompile Include="EntityContainer.cpp" />
     <ClCompile Include="JobRend.cpp" />
-    <ClCompile Include="ChessPixelDrawEntity.cpp" />
-    <ClCompile Include="MainCanvas.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="PlaneDrawEntity.cpp" />
-    <ClCompile Include="Screen.cpp" />
     <ClCompile Include="ScreenStates.cpp" />
-    <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="TextureDrawEntity.cpp" />
+    <ClCompile Include="SDLSoftwareRenderer.cpp" />
     <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractRenderer.h" />
     <ClInclude Include="BaseInputEntity.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="Converters.h" />
+    <ClInclude Include="Engine.h" />
     <ClInclude Include="ModelDrawEntity.h" />
     <ClInclude Include="Directories.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityContainer.h" />
-    <ClInclude Include="ChessPixelDrawEntity.h" />
-    <ClInclude Include="MainCanvas.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="PlaneDrawEntity.h" />
     <ClInclude Include="Resolutions.h" />
-    <ClInclude Include="Screen.h" />
     <ClInclude Include="ScreenStates.h" />
-    <ClInclude Include="Texture.h" />
-    <ClInclude Include="TextureDrawEntity.h" />
+    <ClInclude Include="SDLSoftwareRenderer.h" />
     <ClInclude Include="Vectors.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

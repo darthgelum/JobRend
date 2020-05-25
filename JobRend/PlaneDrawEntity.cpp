@@ -1,6 +1,9 @@
 #include "PlaneDrawEntity.h"
 #include "array"
 #include <algorithm>
+
+#include "Color.h"
+#include "Engine.h"
 void PlaneDrawEntity::Start()
 {
 	buildPlane();
@@ -15,22 +18,21 @@ void PlaneDrawEntity::Update()
 void PlaneDrawEntity::buildPlane()
 {
 	mModel = new Model();
-	int width = Screen::GetWidth();
-	int height = Screen::GetHeight();
+	int width = Engine::Renderer()->GetWidth();
+	int height = Engine::Renderer()->GetHeight();
 	int cellWidth = 100;
 	int cols = width / cellWidth;
 	int rows = height / cellWidth;
 	cols++;
 	rows++;
 	int x, y;
-	MainCanvas* canvas = Screen::GetCanvas();
 	for (int i = 0; i < cols * rows; i++)
 	{
 		int col = floor(i % cols);
 		int row = floor(i / cols);
 		x = col*cellWidth;
 		y = row * cellWidth;
-		Vector3 vertice = Vector3(x - canvas->CenterPoint().x, y - canvas->CenterPoint().y, 0);
+		Vector3 vertice = Vector3(x - Engine::Renderer()->GetWidth()/2, y - Engine::Renderer()->GetHeight()/2, 0);
 
 		mModel->SetVertice(vertice);
 		if (row!=0 && col != cols-1)
@@ -52,18 +54,17 @@ void PlaneDrawEntity::buildPlane()
 
 void PlaneDrawEntity::drawModel()
 {
-
-	MainCanvas* canvas = Screen::GetCanvas();
-	Uint32 red = canvas->CColor(0xFF, 0x00, 0x00);
+	Color red = Color(255, 0, 0, 0);
+	
 	std::vector<Vector3>* faces = &mModel->GetMesh()->faces;
 	std::vector<Vector3>* vertices = &mModel->GetMesh()->vertices;
 	for (Vector3 f : *faces) {
 		Vector3 v1 = (*vertices)[f.x - 1];
 		Vector3 v2 = (*vertices)[f.y - 1];
 		Vector3 v3 = (*vertices)[f.z - 1];
-		//canvas->DrawLine(v1, v2, red);
-		//canvas->DrawLine(v2, v3, red);
-		//canvas->DrawLine(v1, v3, red);
+		Engine::Renderer()->DrawLine(v1, v2, red);
+		Engine::Renderer()->DrawLine(v2, v3, red);
+		Engine::Renderer()->DrawLine(v1, v3, red);
 
 
 	}

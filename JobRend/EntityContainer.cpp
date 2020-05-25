@@ -1,8 +1,6 @@
 #include "Entity.h"
 #include "EntityContainer.h"
-#include "ChessPixelDrawEntity.h"
 #include "BaseInputEntity.h"
-#include "TextureDrawEntity.h"
 #include "ModelDrawEntity.h"
 #include "PlaneDrawEntity.h"
 void EntityContainer::LoadEntities()

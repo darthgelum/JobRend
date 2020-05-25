@@ -1,10 +1,10 @@
 #pragma once
 #include "Texture.h"
-#include "Vector2.h"
-class Canvas
+#include "Vectors.h"
+class MainCanvas
 {
 public:
-	Canvas();
+	MainCanvas();
 	Uint32* GetGBuffer()
 	{
 		return gBuffer;
@@ -19,19 +19,35 @@ public:
 	{
 		return texture->GetHeight();
 	}
-	void SetPixelColor(Uint32 color, int x, int y);
+	
+	int GetPitch()
+	{
+		return texture->GetPitch();
+	}
 
-	void ClearBuffer();
+	Vector2 CenterPoint()
+	{
+		return center;
+	}
+	void DrawLine(Vector3 vertex1, Vector3 vertex2, Uint32 color);
+
+	Uint32* SetPixelColor(Uint32 color, int x, int y);
+
+	Uint32* SetPixelColor(Uint32 color, Uint32* pixel);
 
 	void Render();
 
 	Vector2 GetCoordsOfPixel(int number);
 
-	static Uint32 CColor(int r, int g, int b, int a = 0xFF);
+	Uint32 CColor(int r, int g, int b, int a = 0xFF);
 
 private: 
 	int convertCoordinates(int x, int y);
+	int width;
+	int height;
 	Texture* texture;
 	Uint32* gBuffer;
+	SDL_PixelFormat* mappingFormat;
+	Vector2 center = Vector2(0,0);
 };
 
