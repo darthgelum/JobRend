@@ -34,6 +34,5 @@ void Texture::updateTexture(Uint32* pixels) {
 }
 
 void Texture::renderToScreen(SDL_Renderer* renderer) {
-    SDL_SetTextureBlendMode(mTexture, SDL_BLENDMODE_BLEND);
     SDL_RenderCopy(renderer, mTexture, NULL, NULL);
 }
