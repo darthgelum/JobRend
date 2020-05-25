@@ -66,6 +66,9 @@
     <ClCompile Include="Vector3.cpp">
       <Filter>Исходные файлы\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="PlaneDrawEntity.cpp">
+      <Filter>Исходные файлы\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Resolutions.h">
@@ -107,17 +110,17 @@
     <ClInclude Include="Model.h">
       <Filter>Файлы заголовков\Elements</Filter>
     </ClInclude>
-    <ClInclude Include="Vector3.h">
-      <Filter>Файлы заголовков\Elements</Filter>
-    </ClInclude>
     <ClInclude Include="Mesh.h">
-      <Filter>Файлы заголовков\Elements</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2.h">
       <Filter>Файлы заголовков\Elements</Filter>
     </ClInclude>
     <ClInclude Include="ModelDrawEntity.h">
       <Filter>Файлы заголовков\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaneDrawEntity.h">
+      <Filter>Файлы заголовков\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Vectors.h">
+      <Filter>Файлы заголовков\Elements</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

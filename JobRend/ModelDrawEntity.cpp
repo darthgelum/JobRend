@@ -2,12 +2,11 @@
 #include "MainCanvas.h"
 #include <list>
 void ModelDrawEntity::Start() {
-	model = new Model("models\\ayumi.obj");
+	model = new Model("models\\teapot.obj");
 	//cube->describeMesh();
     int size = model->GetMesh()->numVertices;
     for (int i = 0; i < size; ++i) {
-        (model->GetMesh()->vertices)[i].scale(4);
-        (model->GetMesh()->vertices)[i].translate(Screen::GetCanvas()->CenterPoint().x,-Screen::GetCanvas()->GetHeight(),0);
+        (model->GetMesh()->vertices)[i].scale(25);
     }
 };
 
@@ -31,15 +30,23 @@ void ModelDrawEntity::Update()
         Vector3 v2 = (*vertices)[f.y - 1];
         Vector3 v3 = (*vertices)[f.z - 1];
         canvas->DrawLine(v1, v2, green);
-        //canvas->DrawLine(v2, v3, red);
-        //canvas->DrawLine(v1, v3, blue);
+        canvas->DrawLine(v2, v3, red);
+        canvas->DrawLine(v1, v3, blue);
     }
+    rotate();
 
-    float thetax = 0.004;
-    float thetay = 0.004;
+}
+
+void ModelDrawEntity::rotate()
+{
+    Mesh* modelMesh = model->GetMesh();
+    std::vector<Vector3>* vertices = &modelMesh->vertices;
+    float theta2 = 0.004;
     int size = modelMesh->numVertices;
     for (int i = 0; i < size; ++i) {
-       // (*vertices)[i].rotX(thetax);
-        (*vertices)[i].rotX(thetay);
+        // (*vertices)[i].rotX(thetax);
+        (*vertices)[i].rotX(theta2);
+        (*vertices)[i].rotY(theta2);
+        (*vertices)[i].rotZ(theta2);
     }
 }

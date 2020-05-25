@@ -2,10 +2,12 @@
 #include <stdio.h>
 #include <fstream>
 #include <sstream>
-#include "Vector3.h"
+#include "Vectors.h"
+
+Model::Model() {};
 
 Model::Model(std::string path) {
-    buildMesh(path);
+    LoadObj(path);
 }
 
 Mesh* Model::GetMesh() {
@@ -21,56 +23,46 @@ void Model::describeMesh() {
     printf("Meshsize is: %d \n", meshSize);
 }
 
-void Model::buildMesh(std::string path) {
-    printf("Loading models...\n");
-    std::string line, v, x, y, z;
+void Model::LoadObj(std::string path) {
+    printf("Loading model...\n");
+    std::string line, title, x, y, z;
 
     std::ifstream file;
     file.open(path.c_str());
+    while (!file.eof()) {
+        std::getline(file, line);
+        std::istringstream iss(line);
 
-    //Get vertices into mesh
-    GetVertices(file);
+        iss >> title >> x >> y >> z;
 
-    //Get faces
-    GetFaces(file);
-
+        if (title == "f") {
+            Vector3 face(x, y, z);
+            SetFace(face);
+        }
+        if (title == "v") {
+            Vector3 vertex(x, y, z);
+            SetVertice(vertex);
+        }
+    }
+    file.clear();
+    file.seekg(0, file.beg);
     //Close file after reading
     file.close();
-    mMesh.numVertices = mMesh.vertices.size();
 }
 
-void Model::GetFaces(std::ifstream& file) {
-    std::string line, f, x, y, z;
-    while (!file.eof()) {
 
-        std::getline(file, line);
-        std::istringstream iss(line);
-        iss >> f;
-        if (f == "f") {
-            iss >> x >> y >> z;
-            Vector3 face(x, y, z);
-            mMesh.faces.push_back(face);
-        }
-    }
+void Model::SetFace(Vector3 face) {
+
+    mMesh.faces.push_back(face);
+
     mMesh.numFaces = mMesh.faces.size();
-    file.clear();
-    file.seekg(0, file.beg);
 }
 
+void Model::SetVertice(Vector3 vertex) {
 
-void Model::GetVertices(std::ifstream& file) {
-    std::string line, v, x, y, z;
-    while (!file.eof()) {
-        std::getline(file, line);
-        std::istringstream iss(line);
-        iss >> v;
-        if (v == "v") {
-            iss >> x >> y >> z;
-            Vector3 vertex(x, y, z);
-            mMesh.vertices.push_back(vertex);
-        }
-    }
+    mMesh.vertices.push_back(vertex);
+
     mMesh.numVertices = mMesh.vertices.size();
-    file.clear();
-    file.seekg(0, file.beg);
 }
+
+

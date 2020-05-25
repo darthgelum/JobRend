@@ -1,7 +1,6 @@
 #pragma once
 #include "Texture.h"
-#include "Vector2.h"
-#include "Vector3.h"
+#include "Vectors.h"
 class MainCanvas
 {
 public:
@@ -44,6 +43,8 @@ public:
 
 private: 
 	int convertCoordinates(int x, int y);
+	int width;
+	int height;
 	Texture* texture;
 	Uint32* gBuffer;
 	SDL_PixelFormat* mappingFormat;

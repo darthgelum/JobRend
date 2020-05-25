@@ -2,8 +2,10 @@
 #include "Screen.h"
 MainCanvas::MainCanvas()
 {
+    width = Screen::GetSurface()->w;
+    height = Screen::GetSurface()->h;
     center = Vector2(Screen::GetSurface()->w/2, Screen::GetSurface()->h/2);
-	texture = new Texture(Screen::GetRenderer(), Screen::GetSurface()->w, Screen::GetSurface()->h);
+	texture = new Texture(Screen::GetRenderer(), width,height);
 	gBuffer = new Uint32[Screen::GetPixelsCount()];
     mappingFormat = SDL_AllocFormat(SDL_PIXELFORMAT_RGBA8888);
     for (int i = 0; i < Screen::GetPixelsCount(); ++i) {
@@ -20,10 +22,10 @@ void MainCanvas::DrawLine(Vector3 vertex1, Vector3 vertex2, Uint32 color)
 {
 
     // Coord + centerization (center on x, 2/3 on y)
-    int x0 = vertex1.x;
-    int y0 = -vertex1.y;
-    int x1 = vertex2.x;
-    int y1 =  -vertex2.y;
+    int x0 = vertex1.x + CenterPoint().x;
+    int y0 = -vertex1.y + CenterPoint().y;
+    int x1 = vertex2.x + CenterPoint().x;
+    int y1 =  -vertex2.y + CenterPoint().y;
     // Bresenheim algo
     const int deltaX = abs(x1 - x0);
     const int deltaY = abs(y1 - y0);
@@ -54,11 +56,14 @@ void MainCanvas::DrawLine(Vector3 vertex1, Vector3 vertex2, Uint32 color)
 
 Uint32* MainCanvas::SetPixelColor(Uint32 color, int x, int y)
 {
-    if (x < 0 || y < 0 || x>GetWidth() || y>GetHeight())
+
+    if (x < 0 || y < 0 || x>width || y>height)
     {
         return &gBuffer[0];
     }
+
     int pixelNumber = convertCoordinates(x, y);
+
     gBuffer[pixelNumber] = color;
     return &gBuffer[pixelNumber];
 }
@@ -77,7 +82,7 @@ Vector2 MainCanvas::GetCoordsOfPixel(int number)
 
 int MainCanvas::convertCoordinates(int x, int y)
 {
-    return ((y * GetWidth()) + x);
+    return ((y * width) + x);
 }
 
 void MainCanvas::Render()

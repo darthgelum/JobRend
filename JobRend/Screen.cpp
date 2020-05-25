@@ -33,10 +33,13 @@ void Screen::InitSurface()
 	surface = SDL_GetWindowSurface(window);
 	mainCanvas = new MainCanvas();
 }
+
 void Screen::Clear()
 {
+
 	SDL_RenderClear(renderer);
 	memset(mainCanvas->GetGBuffer(), 0, mainCanvas->GetPitch() * mainCanvas->GetHeight());
+
 }
 void Screen::Destroy()
 {
