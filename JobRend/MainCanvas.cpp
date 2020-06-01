@@ -58,14 +58,13 @@ void MainCanvas::DrawLine(Vector3 vertex1, Vector3 vertex2, Uint32 color)
 
 void MainCanvas::ColorTriangle(Vector3 a, Vector3 b, Vector3 c)
 {
-    //Uint32 red = CColor(0xFF, 0x00, 0x00);
-    //Uint32 green = CColor(0x00, 0xFF, 0x00);
-    //Uint32 blue = CColor(0x00, 0x00, 0xFF);
-    Color red = Color::Red;
-    Color green = Color::Green;
-    Color blue = Color::Blue;
-    Color dColor0 = blue-red;
-    Color dColor1 = green - red;
+    Color col0 = Color::Black;
+    Color col1 = Color::Red;
+    Color col2 = Color::Red;
+
+    int dCol0[] = { col1.r - col0.r, col1.g - col0.g, col1.b - col0.b };
+    int dCol1[] = { col2.r - col0.r, col2.g - col0.g, col2.b - col0.b };
+
     int topLeft[2] = { std::min({a.x,b.x,c.x}),std::min({a.y,b.y,c.y}) };
     int bottomRight[2] = { std::max({a.x,b.x,c.x}),std::max({a.y,b.y,c.y}) };
     
@@ -73,7 +72,9 @@ void MainCanvas::ColorTriangle(Vector3 a, Vector3 b, Vector3 c)
     int bSide = 0;
     int cSide = 0;
 
-
+    Uint8 dR = 0;
+    Uint8 dG = 0;
+    Uint8 dB = 0;
     for (int y = topLeft[1]; y < bottomRight[1]; y++)
     {
         for (int x = topLeft[0]; x < bottomRight[0]; x++)
@@ -86,8 +87,11 @@ void MainCanvas::ColorTriangle(Vector3 a, Vector3 b, Vector3 c)
                 float w2 = (y - a.y - w1 * (b.y - a.y)) / (c.y - a.y);
                 if (w2 >= 0 && w1+w2<=1)
                 {
-                    Color result = Color(255 - (255 * w1) - (255 * w2), 0 + (255 * w1), 0 + (255 * w2));
-                    SetPixelColor(result.toInteger(), x + CenterPoint().x, -y + CenterPoint().y);
+                     dR = w1 * dCol0[0] + w2 * dCol1[0] + col0.r;
+                     dG = w1 * dCol0[1] + w2 * dCol1[1] + col0.g;
+                     dB = w1 * dCol0[2] + w2 * dCol1[2] + col0.b;
+                   
+                    SetPixelColor(Color(dR,dG,dB).toInteger(), x + CenterPoint().x, -y + CenterPoint().y);
                 }
             }
 

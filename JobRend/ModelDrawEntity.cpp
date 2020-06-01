@@ -2,11 +2,11 @@
 #include "MainCanvas.h"
 #include <list>
 void ModelDrawEntity::Start() {
-	model = new Model("models\\ayumi.obj");
+	model = new Model("models\\teapot.obj");
 	//cube->describeMesh();
     int size = model->GetMesh()->numVertices;
     for (int i = 0; i < size; ++i) {
-        (model->GetMesh()->vertices)[i].scale(3);
+        (model->GetMesh()->vertices)[i].scale(20);
     }
 };
 
