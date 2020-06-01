@@ -24,7 +24,7 @@ int main()
     }
 
     while (ScreenState::GetState() ==  ScreenStateEnum::RUN) {
-
+        std::list<Entity*> actualE = cont->GetAll();
         SDL_Event e;
         if (SDL_PollEvent(&e)) {
             for (Entity* en : cont->GetAll())

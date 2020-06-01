@@ -30,10 +30,11 @@ public:
 		return center;
 	}
 	void DrawLine(Vector3 vertex1, Vector3 vertex2, Uint32 color);
+	void ColorTriangle(Vector3 vertice1, Vector3 vertice2, Vector3 vertice3);
 
-	Uint32* SetPixelColor(Uint32 color, int x, int y);
+	void SetPixelColor(Uint32 color, int x, int y);
 
-	Uint32* SetPixelColor(Uint32 color, Uint32* pixel);
+	void SetPixelColor(Uint32 color, Uint32* pixel);
 
 	void Render();
 

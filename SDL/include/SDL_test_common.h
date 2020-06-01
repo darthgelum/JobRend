@@ -52,7 +52,7 @@ typedef struct
 {
     /* SDL init flags */
     char **argv;
-    Uint32 flags;
+    Uint32 f ;
     Uint32 verbose;
 
     /* Video info */

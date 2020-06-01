@@ -48,3 +48,4 @@ void Screen::Destroy()
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }
+

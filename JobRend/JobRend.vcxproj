@@ -154,6 +154,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BaseInputEntity.cpp" />
+    <ClCompile Include="Color.cpp" />
     <ClCompile Include="ModelDrawEntity.cpp" />
     <ClCompile Include="EntityContainer.cpp" />
     <ClCompile Include="JobRend.cpp" />
@@ -165,10 +166,12 @@
     <ClCompile Include="ScreenStates.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureDrawEntity.cpp" />
+    <ClCompile Include="TriangleDrawEntity.cpp" />
     <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseInputEntity.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="Converters.h" />
     <ClInclude Include="ModelDrawEntity.h" />
     <ClInclude Include="Directories.h" />
@@ -184,6 +187,7 @@
     <ClInclude Include="ScreenStates.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureDrawEntity.h" />
+    <ClInclude Include="TriangleDrawEntity.h" />
     <ClInclude Include="Vectors.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

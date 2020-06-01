@@ -2,11 +2,11 @@
 #include "MainCanvas.h"
 #include <list>
 void ModelDrawEntity::Start() {
-	model = new Model("models\\teapot.obj");
+	model = new Model("models\\ayumi.obj");
 	//cube->describeMesh();
     int size = model->GetMesh()->numVertices;
     for (int i = 0; i < size; ++i) {
-        (model->GetMesh()->vertices)[i].scale(25);
+        (model->GetMesh()->vertices)[i].scale(3);
     }
 };
 
@@ -29,9 +29,10 @@ void ModelDrawEntity::Update()
         Vector3 v1 = (*vertices)[f.x - 1];
         Vector3 v2 = (*vertices)[f.y - 1];
         Vector3 v3 = (*vertices)[f.z - 1];
-        canvas->DrawLine(v1, v2, green);
-        canvas->DrawLine(v2, v3, red);
-        canvas->DrawLine(v1, v3, blue);
+        //canvas->DrawLine(v1, v2, green);
+        //canvas->DrawLine(v2, v3, red);
+        //canvas->DrawLine(v1, v3, blue);
+        canvas->ColorTriangle(v3, v2, v1);
     }
     rotate();
 

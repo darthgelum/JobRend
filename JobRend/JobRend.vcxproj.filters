@@ -69,6 +69,12 @@
     <ClCompile Include="PlaneDrawEntity.cpp">
       <Filter>Исходные файлы\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="TriangleDrawEntity.cpp">
+      <Filter>Исходные файлы\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>Исходные файлы\Elements</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Resolutions.h">
@@ -120,6 +126,12 @@
       <Filter>Файлы заголовков\Entities</Filter>
     </ClInclude>
     <ClInclude Include="Vectors.h">
+      <Filter>Файлы заголовков\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="TriangleDrawEntity.h">
+      <Filter>Файлы заголовков\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
       <Filter>Файлы заголовков\Elements</Filter>
     </ClInclude>
   </ItemGroup>
