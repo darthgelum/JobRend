@@ -17,7 +17,7 @@ void PlaneDrawEntity::buildPlane()
 	mModel = new Model();
 	int width = Screen::GetWidth();
 	int height = Screen::GetHeight();
-	int cellWidth = 100;
+	int cellWidth = 800;
 	int cols = width / cellWidth;
 	int rows = height / cellWidth;
 	cols++;
@@ -40,10 +40,10 @@ void PlaneDrawEntity::buildPlane()
 			//mModel->SetFace(Vector3(number - 1, number - cols, number));
 			mModel->SetFace(Vector3(number, number-cols, number-cols+1));
 		}
-		if (row != 0 && col == cols - 1)
-		{
-			mModel->SetFace(Vector3(number-1, number - cols, number));
-		}
+		//if (row != 0 && col == cols - 1)
+		//{
+		//	mModel->SetFace(Vector3(number-1, number - cols, number));
+		//}
 	}
 	Mesh* modelMesh = mModel->GetMesh();
 	std::vector<Vector3>* vertices = &modelMesh->vertices;
@@ -67,6 +67,20 @@ void PlaneDrawEntity::drawModel()
 	}
 	float theta2 = 0.004;
 	int size = mModel->GetMesh()->numVertices;
+	rotate();
 
+}
 
+void PlaneDrawEntity::rotate()
+{
+	Mesh* modelMesh = mModel->GetMesh();
+	std::vector<Vector3>* vertices = &modelMesh->vertices;
+	float theta2 = 0.004;
+	int size = modelMesh->numVertices;
+	for (int i = 0; i < size; ++i) {
+		// (*vertices)[i].rotX(thetax);
+		(*vertices)[i].rotX(theta2);
+		(*vertices)[i].rotY(theta2);
+		//(*vertices)[i].rotZ(theta2);
+	}
 }

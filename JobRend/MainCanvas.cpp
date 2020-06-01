@@ -59,24 +59,25 @@ void MainCanvas::DrawLine(Vector3 vertex1, Vector3 vertex2, Uint32 color)
 void MainCanvas::ColorTriangle(Vector3 a, Vector3 b, Vector3 c)
 {
     Color col0 = Color::Black;
-    Color col1 = Color::Red;
+    Color col1 = Color::Yellow;
     Color col2 = Color::Red;
 
+    int cx = CenterPoint().x;
+    int cy = CenterPoint().y;
+   
     int dCol0[] = { col1.r - col0.r, col1.g - col0.g, col1.b - col0.b };
     int dCol1[] = { col2.r - col0.r, col2.g - col0.g, col2.b - col0.b };
 
     int topLeft[2] = { std::min({a.x,b.x,c.x}),std::min({a.y,b.y,c.y}) };
     int bottomRight[2] = { std::max({a.x,b.x,c.x}),std::max({a.y,b.y,c.y}) };
-    
-    int aSide = 0;
-    int bSide = 0;
-    int cSide = 0;
 
     Uint8 dR = 0;
     Uint8 dG = 0;
     Uint8 dB = 0;
+
     for (int y = topLeft[1]; y < bottomRight[1]; y++)
     {
+        bool hasColoredInline = false;
         for (int x = topLeft[0]; x < bottomRight[0]; x++)
         {
             float w1 =   (a.x * (c.y - a.y) + (y - a.y)*(c.x - a.x) - x*(c.y - a.y))/
@@ -91,7 +92,22 @@ void MainCanvas::ColorTriangle(Vector3 a, Vector3 b, Vector3 c)
                      dG = w1 * dCol0[1] + w2 * dCol1[1] + col0.g;
                      dB = w1 * dCol0[2] + w2 * dCol1[2] + col0.b;
                    
-                    SetPixelColor(Color(dR,dG,dB).toInteger(), x + CenterPoint().x, -y + CenterPoint().y);
+                    SetPixelColor((dR << 24) | (dG << 16) | (dB << 8) | 255, x + cx, -y + cy);
+                    hasColoredInline = true;
+                }
+                else
+                {
+                    if(hasColoredInline)
+                    {
+                       break;
+                    }
+                }
+            }
+            else
+            {
+                if (hasColoredInline)
+                {
+                    break;
                 }
             }
 
@@ -116,9 +132,7 @@ void MainCanvas::SetPixelColor(Uint32 color, int x, int y)
         return;
     }
 
-    int pixelNumber = convertCoordinates(x, y);
-
-    gBuffer[pixelNumber] = color;
+    gBuffer[((y * width) + x)] = color;
 }
 
 void MainCanvas::SetPixelColor(Uint32 color, Uint32* pixel)

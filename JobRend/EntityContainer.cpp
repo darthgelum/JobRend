@@ -11,7 +11,7 @@ void EntityContainer::LoadEntities()
 	//Add(new ChessPixelDrawEntity());
 	Add(new BaseInputEntity());
 	//Add(new TextureDrawEntity());
-	Add(new ModelDrawEntity());
-	//Add(new PlaneDrawEntity());
+	//Add(new ModelDrawEntity());
+	Add(new PlaneDrawEntity());
 	//Add(new TriangleDrawEntity());
 }

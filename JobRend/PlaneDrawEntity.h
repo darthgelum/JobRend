@@ -8,6 +8,7 @@ class PlaneDrawEntity : public Entity
 private:
 	void buildPlane();
 	void drawModel();
+	void rotate();
 	Model* mModel;
 };
 
